@@ -1,12 +1,14 @@
+//Cache our DOM for manipulation
 const userInput = document.querySelector("#user-choice");
 const buttonSubmit = document.querySelector(".input-group > button");
 const winnerContainer = document.querySelector(".winner-wrapper-hidden");
 const winnerMessage = document.querySelector(".winner > h2")
 const userScoreUI = document.querySelector(".score-wrapper > #user-score > span");
 const cpuScoreUI = document.querySelector(".score-wrapper > #cpu-score > span");
-
 const scoreFeed = document.querySelector(".score-feed > ul");
 const restartButton = document.querySelector(".winner > button");
+
+//Game Variables
 let userScore = 0;
 let computerScore = 0;
 let round = 0;

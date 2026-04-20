@@ -99,6 +99,39 @@ header, footer{
 .score-feed ul > li:not(:last-child){
   border-bottom: 2px solid black;
 }
+.winner > h2 {
+  margin: 16px 0px 8px;
+  font-size: 32px
+}
+.winner > h3 {
+  margin: 0px 0px 8px;
+  font-size: 24px;
+}
+
+#user-score
+, #cpu-score {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.input-group > button {
+  padding: 4px 8px;
+  background-color: rgba(103, 103, 255, 0.85);
+}
+
+.input-group > button
+, .winner > button {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+.winner > button {
+  background-color: #adff2f;
+  padding: 8px 16px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
 
 .input-group {
   display: flex;
