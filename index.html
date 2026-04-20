@@ -3,13 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Rock, Paper, Scissors</title>
 </head>
 <body>
-  
+  <header>
+    <div class="title-wrapper">
+      <span>Rock, Paper, Scissors</span>
+    </div>
+  </header>
 
 
+  <main>
+    <div class="rules-wrapper">
+      <div class="rules">
+        <h2>
+          How to Play
+        </h2>
+        <p>
+          Choose your move by typing rock, paper, or scissors into the input box and get ready to battle it out over 5 rounds. Don’t worry about capitalization — the game reads your choice the same whether you type rock, Rock, or ROCK. Each round follows the classic rules: rock crushes scissors, scissors cuts paper, and paper covers rock. Win more rounds than your opponent by the end of the match to claim victory. Once all 5 rounds are over, the final winner is announced, and a Restart button will appear so you can jump right back in for another showdown.
+        </p>
+      </div>
+    </div>
+    <div class="game-container">
+      <div class="game-wrapper">
+        <div class="game-input-area">
+          <form>
+            <div class="form-group">
+              <label for="user-choice">Please Enter Rock, Paper, or Scissors (case-insensitive):</label>
+              <div class="input-group">
+              <input type="text" name="user-choice" id="user-choice">
+              <button>Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="game-score">
+          <div class="display-winner" hidden>
+            <h2>hi</h2>
+          </div>
+          <div class="score-wrapper">
+            <div id="user-score">User Score: <span>0</span></div>
+            <div id="cpu-score">Opp. Score: <span>0</span></div>
+          </div>
+          <div class="score-feed">
+            <span>Feed:</span>
+            <div></div>
+            <ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="winner-wrapper-hidden">
+      <div class="winner">
+        <h2></h2>
+        <h3>Play Again?</h3>
+        <button type="button">Restart</button>
+      </div>
+    </div>
+  </main>
 
+  <footer>
+    <div class="footer-wrapper"><span>Created by <a href="https://github.com/arocegue" rel="noreferrer noopener">arocegue</a></span></div>
+  </footer>
 <script src="logic.js" type="text/javascript"></script>
 </body>
 </html>

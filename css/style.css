@@ -1,0 +1,112 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: #f1f1f1;
+  background-color:#be9b7b;
+  height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+header, footer{
+  background-color: #000;
+}
+
+.title-wrapper {
+  padding: 32px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+
+.rules
+, .game-wrapper
+, .winner {
+  width: clamp(300px, calc(42.857px + 80.357vw), 1200px);
+}
+
+.rules {
+  border-bottom: 2px dashed black;
+}
+.winner {
+  border-top: 2px dashed black;
+  flex-direction: column;
+  margin: 0px 32px 32px;
+}
+
+.winner-wrapper-hidden {
+  display: none;
+}
+
+.rules > h2 {
+  text-align: center;
+}
+
+.game-container
+, .winner-wrapper
+, .rules-wrapper
+, .winner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-container {
+  height: 450px;
+}
+
+.game-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-wrapper {
+  text-align: center;
+  padding: 32px 16px;
+}
+.score-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.score-feed{
+  text-align: center;
+}
+
+.score-feed > div {
+  border-bottom: 1px dashed black;
+  margin-bottom: 4px;
+}
+
+.score-feed ul {
+  list-style-type: none;
+  margin: 0;
+  border: 2px double #b4b4b4;
+  padding: 16px;
+  width: 310px;
+  height: 111px;
+  background-color: rgba(167, 167, 167, 0.5);
+}
+
+.score-feed ul > li:not(:last-child){
+  border-bottom: 2px solid black;
+}
+
+.input-group {
+  display: flex;
+}
+
+.input-group > input {
+  flex: 1;
+}
+
+
+

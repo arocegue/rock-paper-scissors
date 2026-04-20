@@ -1,18 +1,53 @@
+const userInput = document.querySelector("#user-choice");
+const buttonSubmit = document.querySelector(".input-group > button");
+const winnerContainer = document.querySelector(".winner-wrapper-hidden");
+const winnerMessage = document.querySelector(".winner > h2")
+const userScoreUI = document.querySelector(".score-wrapper > #user-score > span");
+const cpuScoreUI = document.querySelector(".score-wrapper > #cpu-score > span");
+
+const scoreFeed = document.querySelector(".score-feed > ul");
+const restartButton = document.querySelector(".winner > button");
 let userScore = 0;
 let computerScore = 0;
+let round = 0;
 const choices = ["rock", "paper", "scissors"];
+
+buttonSubmit.addEventListener("click" , function(e) {
+  e.preventDefault();
+  const userChoice = userInput.value.toLowerCase();
+  if(userInput.value.length > 0 && round  < 5 && choices.includes(userChoice)){
+    round++;
+    playRound(userChoice);
+  }
+
+  userInput.value = "";
+  userInput.focus();
+
+});
+
+restartButton.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  restartGame();
+
+  userInput.value = "";
+  userInput.focus();
+})
+
+function resetFeed () {
+  scoreFeed.replaceChildren();
+}
+
+function setUserScoreUI (score) {
+  userScoreUI.textContent = score;
+}
+
+function setComputerScoreUI(score) {
+  cpuScoreUI.textContent = score;
+}
 
 function getComputerChoice() {
   return choices[Math.floor(Math.random() * 3)]
-}
-
-function getHumanChoice() {
-  let userChoice = "";
-  while (!choices.includes(userChoice)){
-    userChoice = prompt("Please Enter: Rock, Paper, or Scissors").toLowerCase();
-  }
-
-  return userChoice;
 }
 
 
@@ -28,19 +63,25 @@ function compareChoices(userChoice, computerChoice) {
   }
 }
 
-function playRound () {
-  const userChoice = getHumanChoice();
+function playRound (userInput) {
+  const userChoice = userInput;
   const computerChoice = getComputerChoice();
   const formatUserChoice = userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
   const formatComputerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
+  const feedLine = document.createElement("li");
   if(compareChoices(userChoice, computerChoice) === "user"){
-    userScore++;
-    console.log(`You win this round, ${formatUserChoice} beats ${formatComputerChoice}!`);
+    setUserScoreUI(++userScore);
+    feedLine.textContent = `You win this round, ${formatUserChoice} beats ${formatComputerChoice}!`
   }else if (compareChoices(userChoice, computerChoice) === "computer") {
-    computerScore++;
-    console.log(`You lose this round, ${formatComputerChoice} beats ${formatUserChoice}!`);
+    setComputerScoreUI(++computerScore)
+    feedLine.textContent = `You lose this round, ${formatComputerChoice} beats ${formatUserChoice}!`
   }else {
-    console.log(`Tie Round, both of you chose ${formatUserChoice}!`);
+    feedLine.textContent = `Tie Round, both of you chose ${formatUserChoice}!`;
+  }
+
+  scoreFeed.appendChild(feedLine);
+  if (round >= 5){
+    concludeGame();
   }
 }
 
@@ -56,12 +97,16 @@ function getGameWinner() {
   return message;
 }
 
-
-function gameStart() {
-  for (let i = 0; i < 5; ++i) {
-    playRound();
-  }
-  console.log(getGameWinner());
+function restartGame() {
+  [round, userScore, computerScore] = [0, 0, 0];
+  setComputerScoreUI(0);
+  setUserScoreUI(0);
+  resetFeed();
+  winnerContainer.classList.replace("winner-wrapper", "winner-wrapper-hidden");
 }
 
-gameStart();
+function concludeGame() {
+  winnerMessage.textContent = getGameWinner();
+  winnerContainer.classList.replace("winner-wrapper-hidden", "winner-wrapper");
+
+}
