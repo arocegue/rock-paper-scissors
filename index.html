@@ -9,7 +9,7 @@
 <body>
   <header>
     <div class="title-wrapper">
-      <span>Rock, Paper, Scissors</span>
+      <h1>Rock, Paper, Scissors</h1>
     </div>
   </header>
 
@@ -25,23 +25,26 @@
         </p>
       </div>
     </div>
+    <div class="winner-wrapper-hidden">
+      <div class="winner">
+        <h2></h2>
+        <h3>Play Again?</h3>
+        <button type="button">Restart</button>
+      </div>
+    </div>
     <div class="game-container">
       <div class="game-wrapper">
         <div class="game-input-area">
-          <form>
-            <div class="form-group">
-              <label for="user-choice">Please Enter: Rock, Paper, or Scissors (case-insensitive):</label>
-              <div class="input-group">
-              <input type="text" name="user-choice" id="user-choice">
-              <button>Submit</button>
+            <div class="input-wrapper">
+              <h2>Choose your option!</h2>
+              <div class="button-group">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
               </div>
             </div>
-          </form>
         </div>
         <div class="game-score">
-          <div class="display-winner" hidden>
-            <h2>hi</h2>
-          </div>
           <div class="score-wrapper">
             <div id="user-score">User Score: <span>0</span></div>
             <div id="cpu-score">Opp. Score: <span>0</span></div>
@@ -53,13 +56,6 @@
             </ul>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="winner-wrapper-hidden">
-      <div class="winner">
-        <h2></h2>
-        <h3>Play Again?</h3>
-        <button type="button">Restart</button>
       </div>
     </div>
   </main>

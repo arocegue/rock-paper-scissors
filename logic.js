@@ -1,6 +1,6 @@
 //Cache our DOM for manipulation
 const userInput = document.querySelector("#user-choice");
-const buttonSubmit = document.querySelector(".input-group > button");
+const buttonSubmit = document.querySelector(".button-group");
 const winnerContainer = document.querySelector(".winner-wrapper-hidden");
 const winnerMessage = document.querySelector(".winner > h2")
 const userScoreUI = document.querySelector(".score-wrapper > #user-score > span");
@@ -14,26 +14,19 @@ let computerScore = 0;
 let round = 0;
 const choices = ["rock", "paper", "scissors"];
 
+//Handle all 3 choices through event delegation
 buttonSubmit.addEventListener("click" , function(e) {
-  e.preventDefault();
-  const userChoice = userInput.value.toLowerCase();
-  if(userInput.value.length > 0 && round  < 5 && choices.includes(userChoice)){
-    round++;
-    playRound(userChoice);
+  if (e.target.tagName === 'BUTTON' && e.isTrusted && round  < 5 && choices.includes(e.target.id)) {
+    round++
+    playRound(e.target.id);
   }
-
-  userInput.value = "";
-  userInput.focus();
 
 });
 
+//Restart game option
 restartButton.addEventListener("click", function (e) {
   e.preventDefault();
-
   restartGame();
-
-  userInput.value = "";
-  userInput.focus();
 })
 
 function resetFeed () {
