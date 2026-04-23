@@ -9,10 +9,24 @@ body {
   background-color:#be9b7b;
   height: 100vh;
 }
+@media screen and (max-width: 600px){
+  .game-container > .game-wrapper {
+    flex-direction: column-reverse;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .input-wrapper > .button-group {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+  }
+}
 
 main {
   flex: 1;
 }
+
 
 header, footer{
   background-color: #000;
@@ -39,16 +53,17 @@ h1
   width: clamp(300px, calc(42.857px + 80.357vw), 1200px);
 }
 
-.rules
-, .winner {
+.rules {
   border-bottom: 2px dashed black;
 }
 .winner {
   flex-direction: column;
-  padding: 16px 0px 32px;
+  transition: all 0.5s ease-in allow-discrete;
 }
 
-.winner-wrapper-hidden {
+
+
+.hidden {
   display: none;
 }
 
@@ -65,7 +80,8 @@ h1
   align-items: center;
 }
 
-.game-container {
+.game-container
+, .winner-wrapper {
   height: 450px;
 }
 
@@ -76,9 +92,13 @@ h1
   gap: 10px;
 }
 
+.game-input-area {
+  max-width: 600px;
+  flex: 1;
+
+}
 .input-wrapper {
   text-align: center;
-  width: 600px
 }
 
 .input-wrapper > h2
@@ -130,6 +150,14 @@ h1
   font-size: 20px;
   font-weight: 700;
 }
+#user-score {
+  color: #008000;
+}
+
+#cpu-score {
+  color: #ff0000;
+}
+
 
 .button-group > button {
   padding: 16px 0px;

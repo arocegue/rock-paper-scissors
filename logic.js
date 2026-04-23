@@ -1,13 +1,13 @@
 //Cache our DOM for manipulation
 const userInput = document.querySelector("#user-choice");
 const buttonSubmit = document.querySelector(".button-group");
-const winnerContainer = document.querySelector(".winner-wrapper-hidden");
+const winnerContainer = document.querySelector("div.hidden");
 const winnerMessage = document.querySelector(".winner > h2")
 const userScoreUI = document.querySelector(".score-wrapper > #user-score > span");
 const cpuScoreUI = document.querySelector(".score-wrapper > #cpu-score > span");
 const scoreFeed = document.querySelector(".score-feed > ul");
 const restartButton = document.querySelector(".winner > button");
-
+const gameContainer = document.querySelector(".game-container")
 //Game Variables
 let userScore = 0;
 let computerScore = 0;
@@ -16,8 +16,9 @@ const choices = ["rock", "paper", "scissors"];
 
 //Handle all 3 choices through event delegation
 buttonSubmit.addEventListener("click" , function(e) {
-  if (e.target.tagName === 'BUTTON' && e.isTrusted && round  < 5 && choices.includes(e.target.id)) {
-    round++
+  if (e.target.tagName === 'BUTTON' && e.isTrusted 
+    && round  < 5 && choices.includes(e.target.id)) {
+    round++;
     playRound(e.target.id);
   }
 
@@ -97,11 +98,20 @@ function restartGame() {
   setComputerScoreUI(0);
   setUserScoreUI(0);
   resetFeed();
-  winnerContainer.classList.replace("winner-wrapper", "winner-wrapper-hidden");
+  gameContainer.classList.replace("hidden", "game-container");
+  winnerContainer.classList.replace("winner-wrapper", "hidden");
 }
 
 function concludeGame() {
   winnerMessage.textContent = getGameWinner();
-  winnerContainer.classList.replace("winner-wrapper-hidden", "winner-wrapper");
+
+  //Allow round output to tell user the outcome on last round
+  setTimeout(() => {
+
+    gameContainer.classList.replace("game-container", "hidden");
+    winnerContainer.classList.replace("hidden", "winner-wrapper");
+
+
+  }, 500);
 
 }
