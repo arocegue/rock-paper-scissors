@@ -4,7 +4,9 @@ A browser-based **Rock Paper Scissors** game built with **HTML, CSS, and JavaScr
 
 ## About the Project
 
-This project was completed as part of **The Odin Project – Revisiting Rock Paper Scissors** lesson, where the goal is to take a previous Rock Paper Scissors project and refactor it into a DOM-based interactive game. The assignment specifically asks students to replace prompt-based input with buttons, display results directly on the page, track the running score, and announce a winner once one side reaches 5 points. The game is played over **5 rounds total** rather than continuing until one side reaches 5 points. After the fifth round, the final score is compared, the winner message is shown, and the player can restart the game with a dedicated button. Created with:
+This project was completed as part of **The Odin Project – Revisiting Rock Paper Scissors** lesson, where the goal is to take a previous Rock Paper Scissors project and refactor it into a DOM-based interactive game. The assignment specifically asks students to replace prompt-based input with buttons, display results directly on the page, track the running score, and announce a winner once one side reaches 5 points. The game is played over **5 rounds total** rather than continuing until one side reaches 5 points. After the fifth round, the final score is compared, the winner message is shown, and the player can restart the game with a dedicated button. 
+
+## Created With
 
 - **HTML5**
 - **CSS3**
@@ -16,6 +18,7 @@ The repository currently includes:
 - `logic.js`
 - `css/` folder for styling assets
 
+## Features 
 - Interactive Rock Paper Scissors UI
 - Three button choices for player input
 - CPU opponent with randomized selection
@@ -27,12 +30,15 @@ The repository currently includes:
 - Flexbox-based page layout
 - Button click handling using **event delegation** to avoid attaching multiple listeners
 
+## How It Works
 - The player clicks one of the three move buttons: **Rock**, **Paper**, or **Scissors**
 - The CPU randomly selects its move from the same three options
 - Each round result is added to the on-page round feed
 - Scores update after every round
 - After **5 rounds**, the game compares total scores and displays the final result
 - The player can click **Restart** to clear the board and begin a new match
+
+## What I Practiced
 
 This project helped me strengthen my skills in:
 
@@ -55,8 +61,9 @@ A few implementation details that stand out in this project:
 - The game toggles between the active game view and the winner view once the match is complete
 - A restart function resets rounds, scores, and UI state for replayability
 
+## Layout and Styling
 The page layout is built primarily with **Flexbox**, which is used to organize the score area, input controls, gameplay section, and winner screen. The styling also includes small screen-based adjustments using media queries, so the project reads as **desktop-first with some responsive tweaks** rather than strictly desktop-only.
-
+## Lessons Learned
 Some of the main takeaways from building this project:
 
 - Moving from console output to DOM output requires better separation of logic and presentation
